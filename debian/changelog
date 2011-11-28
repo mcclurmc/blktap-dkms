@@ -1,3 +1,9 @@
+blktap-dkms (2.0.90-1ubuntu1) oneiric; urgency=low
+
+  * Ubuntu Oneiric bump
+
+ -- Mike McClurg <mike.mcclurg@citrix.com>  Mon, 28 Nov 2011 15:48:03 +0000
+
 blktap-dkms (2.0.90-1) unstable; urgency=low
 
   * Initial release (Closes: #648691)
