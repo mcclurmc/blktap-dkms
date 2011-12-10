@@ -21,6 +21,8 @@ gen-upstream-tarball:
 
 # we don't actually build/clean the source here, it's dkms
 override_dh_auto_clean:
+	rm -f debian/blktap-dkms.install
 
 override_dh_auto_build:
+	sed 's/@UPSTREAM_VERSION@/'$(UPSTREAM_VERSION)/ debian/blktap-dkms.install.in >debian/blktap-dkms.install
 
