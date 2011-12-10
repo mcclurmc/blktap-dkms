@@ -1,3 +1,12 @@
+blktap-dkms (2.0.91-1) unstable; urgency=low
+
+  * New upstream release fixing:
+  -  We weren't including <linux/module.h> explicitly, and presumably something
+  has changed meaning that it doesn't get included transitively from something
+  else. Fix this by including it in blktap.h
+
+ -- Thomas Goirand <zigo@debian.org>  Sat, 10 Dec 2011 05:46:01 +0000
+
 blktap-dkms (2.0.90-1) unstable; urgency=low
 
   * Initial release (Closes: #648691)
