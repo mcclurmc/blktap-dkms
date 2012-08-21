@@ -1,3 +1,9 @@
+blktap-dkms (2.0.92-1ubuntu1~quantal) quantal; urgency=low
+
+  * Bump version for Quantal
+
+ -- Mike McClurg <mike.mcclurg@citrix.com>  Tue, 21 Aug 2012 14:32:13 +0100
+
 blktap-dkms (2.0.92-1) experimental; urgency=low
 
   * Bump upstream version
