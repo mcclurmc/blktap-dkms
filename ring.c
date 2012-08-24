@@ -97,9 +97,7 @@ blktap_read_ring(struct blktap *tap)
 	struct blktap_ring_response rsp;
 	RING_IDX rc, rp;
 
-	down_read(&current->mm->mmap_sem);
 	if (!ring->vma) {
-		up_read(&current->mm->mmap_sem);
 		return;
 	}
 
@@ -113,8 +111,6 @@ blktap_read_ring(struct blktap *tap)
 	}
 
 	ring->ring.rsp_cons = rc;
-
-	up_read(&current->mm->mmap_sem);
 }
 
 #define MMAP_VADDR(_start, _req, _seg)				\
@@ -598,10 +594,8 @@ static unsigned int blktap_ring_poll(struct file *filp, poll_table *wait)
 	poll_wait(filp, &tap->pool->wait, wait);
 	poll_wait(filp, &ring->poll_wait, wait);
 
-	down_read(&current->mm->mmap_sem);
 	if (ring->vma && tap->device.gd)
 		blktap_device_run_queue(tap, filp);
-	up_read(&current->mm->mmap_sem);
 
 	work = ring->ring.req_prod_pvt - ring->ring.sring->req_prod;
 	RING_PUSH_REQUESTS(&ring->ring);
